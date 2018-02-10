@@ -1,0 +1,64 @@
+def anagram_sum1(input1,input2):
+        l1 = list(str(input1)) #input1 = number
+        l2 = list(str(input2)) #input2 = number
+        d1 = dict() # for use to store occurence of digits as value and digit itself as key
+        d2 = dict()
+        for a in l1:
+                if(a in d1):
+                        c = l1.count(a)
+                        d1[a] = c
+                else:
+                        d1[a] = 1                
+        for a in l2:
+            if(a in d2):
+                    c = l2.count(a)
+                    d2[a] = c
+            else:
+                    d2[a] = 1
+        s = 0
+        if(d1==d2): #comparing if both are anagram or not
+                l = map(lambda a:int(a),list(d1.keys())) # find sum of all matching taking only one occurence each
+                s = sum(list(l))
+        else:  #If not then add not matching number and give sum
+                for k1 in d1:
+                        if(k1 not in d2):
+                                s = s + int(k1)
+                        else:
+                                s = s + int(k1)
+                for k2 in d2:
+                        if(k2 not in d1):
+                                s = s + int(k2)
+                        
+        return s
+
+def anagram_sum2(input1,input2):
+	l1 = list(str(input1))
+	l2 = list(str(input2))
+	d1 = dict()
+	d2 = dict()
+	for a in l1:
+		if(a in d1):
+			c = l1.count(a)
+			d1[a] = c
+		else:
+			d1[a] = 1
+	for a in l2:
+		if(a in d2):
+			c = l2.count(a)
+			d2[a] = c
+		else:
+			d2[a] = 1
+	s = 0
+	if(d1==d2):
+		l = list(d1.keys())
+		for i, e in enumerate(l):
+			l[i] = int(e)
+		s = sum(l)
+	else:
+		for k1 in d1:
+			if(k1 not in d2):
+				s = s + int(k1)
+		for k2 in d2:
+			if(k2 not in d1):
+				s = s + int(k2)
+	return s
