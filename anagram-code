@@ -1,3 +1,6 @@
+def abc:
+        pass
+
 def anagram_sum1(input1,input2):
         l1 = list(str(input1)) #input1 = number
         l2 = list(str(input2)) #input2 = number
